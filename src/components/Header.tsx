@@ -1,6 +1,4 @@
 import { Link } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
 import Nav from './Nav'
 
 /**
@@ -13,10 +11,10 @@ import Nav from './Nav'
  * @param {function} props.closeMenu - Function to close the mobile menu.
  * @returns {JSX.Element} The rendered header component.
  */
-function Header({ toggleMenu, isOpen, closeMenu }) {
+function Header() {
   return (
     <>
-      <header className="flex items-center justify-between bg-primary p-4 md:gap-20">
+      <header className="flex flex-column items-center text-center mx-auto bg-white p-4 gap-5">
         <Link to="/" onClick={() => (window.location.href = '/')}>
           <img
             className="ml-2 w-[85px] md:ml-5 md:w-[100px]"
@@ -24,22 +22,15 @@ function Header({ toggleMenu, isOpen, closeMenu }) {
             alt="Logo"
           />
         </Link>
-        <button
-          onClick={toggleMenu}
-          className="mr-4 text-3xl md:hidden"
-          aria-label="Toggle menu"
-        >
-          <FontAwesomeIcon icon={faBars} />
-        </button>
-        <div className="hidden md:block">
-          <Nav isOpen={true} closeMenu={closeMenu} />
-        </div>
+        <p className="font-michroma font-bold text-3xl tracking-widest">
+          Regine D.<br></br> Kornbakk
+        </p>
       </header>
-      {isOpen && (
-        <div className="md:hidden">
-          <Nav isOpen={isOpen} closeMenu={closeMenu} />
-        </div>
-      )}
+      <div className="border-b-2 border-black pt-2"></div>
+      <div className="flex flex-row text-center my-4">
+        <Nav />
+      </div>
+      <div className="border-b-2 border-black"></div>
     </>
   )
 }
