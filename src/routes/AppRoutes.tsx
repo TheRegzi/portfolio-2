@@ -1,12 +1,9 @@
-import { Routes, Route } from "react-router-dom";
-import Layout from "../components/Layout";
-import Home from "../pages/Home";
-import Register from "../pages/Register";
-import Login from "../pages/Login";
-import SpecificVenue from "../pages/SpecificVenue";
-import Profile from "../pages/Profile";
-import ErrorPage from "../pages/ErrorPage";
-import ProtectedRoute from "../components/ProtectedRoute";
+import { FC } from 'react'
+import { Routes, Route } from 'react-router-dom'
+import Layout from '../components/Layout'
+import Home from '../pages/Home'
+import About from '../pages/About'
+import Article from '../pages/Article'
 
 /**
  * AppRoutes component that defines the main routing structure for the application, including all core routes with their corresponding pages.
@@ -14,26 +11,20 @@ import ProtectedRoute from "../components/ProtectedRoute";
  *
  * @returns {JSX.Element} The rendered route structure.
  */
-function AppRoutes() {
+const AppRoutes: FC = () => {
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
+      <Route path="/*" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="register" element={<Register />} />
-        <Route path="login" element={<Login />} />
-        <Route path="specific-venue/:id" element={<SpecificVenue />} />
-        <Route
-          path="profile"
-          element={
-            <ProtectedRoute>
-              <Profile />
-            </ProtectedRoute>
-          }
-        />
-        <Route path="*" element={<ErrorPage />} />
+        <Route path="about" element={<About />} />
+        <Route path="article/:id" element={<Article />} />
       </Route>
     </Routes>
-  );
+  )
 }
 
-export default AppRoutes;
+export default AppRoutes
+
+export interface ArticleParams {
+  id: string
+}
