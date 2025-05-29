@@ -34,25 +34,40 @@ function Nav(): JSX.Element {
           </NavLink>
         </li>
       </ul>
-      <div className="items-center flex gap-4 mt-6 md:mt-0 md:ml-auto">
-        <button className="flex items-center">
+      <div className="items-center flex gap-2 mt-6 md:mt-0 md:ml-auto md:pr-8">
+        <a
+          href="./rdk-cv-english.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center"
+        >
           <FontAwesomeIcon
             icon={faFileLines}
-            className="inline justify-center ml-2 w-5 h-5"
+            className="inline justify-center ml-2 text-3xl"
           />
-        </button>
-        <button className="flex items-center">
+        </a>
+        <a
+          href="https://github.com/TheRegzi"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center"
+        >
           <FontAwesomeIcon
             icon={faGithub}
-            className="inline justify-center ml-2 w-5 h-5"
+            className="inline justify-center ml-2 text-3xl"
           />
-        </button>
-        <button className="flex items-center">
+        </a>
+        <a
+          href="https://www.linkedin.com/in/regine-dille-kornbakk-aa0a7b288/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center"
+        >
           <FontAwesomeIcon
             icon={faLinkedin}
-            className="inline justify-center ml-2 w-5 h-5"
+            className="inline justify-center ml-2 text-3xl"
           />
-        </button>
+        </a>
       </div>
     </div>
   )
