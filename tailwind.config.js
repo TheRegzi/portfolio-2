@@ -14,7 +14,24 @@ export default {
         lightPurple: '#FCEDFF',
         darkGray: '#A4A4A4',
       },
+      textShadow: {
+        DEFAULT: '2px 2px 4px rgba(0,0,0,0.45)',
+        md: '3px 3px 6px rgba(0,0,0,0.5)',
+        none: 'none',
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities, theme }) {
+      const textShadow = theme('textShadow')
+      const utilities = Object.entries(textShadow).map(([key, value]) => {
+        return {
+          [`.text-shadow${key === 'DEFAULT' ? '' : `-${key}`}`]: {
+            textShadow: value,
+          },
+        }
+      })
+      addUtilities(utilities, ['responsive', 'hover'])
+    },
+  ],
 }

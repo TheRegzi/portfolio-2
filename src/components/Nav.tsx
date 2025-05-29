@@ -1,4 +1,7 @@
 import { NavLink } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFileLines } from '@fortawesome/free-solid-svg-icons'
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 /**
  * Navigation component that displays app links.
@@ -8,28 +11,50 @@ import { NavLink } from 'react-router-dom'
  */
 function Nav(): JSX.Element {
   return (
-    <ul className="flex flex-row gap-20 mx-auto">
-      <li className="pb-6 font-lato text-xl font-semibold hover:text-accent md:pb-0">
-        <NavLink
-          to="/"
-          className={({ isActive }: { isActive: boolean }) =>
-            isActive ? 'border-b-2 border-black hover:border-accent' : ''
-          }
-        >
-          Home
-        </NavLink>
-      </li>
-      <li className="pb-6 font-lato text-xl font-semibold hover:text-accent md:pb-0">
-        <NavLink
-          to="/about"
-          className={({ isActive }: { isActive: boolean }) =>
-            isActive ? 'border-b-2 border-black hover:border-accent ' : ''
-          }
-        >
-          About
-        </NavLink>
-      </li>
-    </ul>
+    <div className="relative flex flex-col items-center md:flex-row md:items-center md:justify-between w-full px-4 py-4 md:h-16">
+      <ul className="flex flex-row gap-10 md:absolute md:left-1/2 md:transform md:-translate-x-1/2">
+        <li className="font-lato text-xl font-semibold hover:text-accent">
+          <NavLink
+            to="/"
+            className={({ isActive }: { isActive: boolean }) =>
+              isActive ? 'border-b-2 border-black hover:border-accent pb-1' : ''
+            }
+          >
+            Home
+          </NavLink>
+        </li>
+        <li className="font-lato text-xl font-semibold hover:text-accent">
+          <NavLink
+            to="/about"
+            className={({ isActive }: { isActive: boolean }) =>
+              isActive ? 'border-b-2 border-black hover:border-accent pb-1' : ''
+            }
+          >
+            About
+          </NavLink>
+        </li>
+      </ul>
+      <div className="items-center flex gap-4 mt-6 md:mt-0 md:ml-auto">
+        <button className="flex items-center">
+          <FontAwesomeIcon
+            icon={faFileLines}
+            className="inline justify-center ml-2 w-5 h-5"
+          />
+        </button>
+        <button className="flex items-center">
+          <FontAwesomeIcon
+            icon={faGithub}
+            className="inline justify-center ml-2 w-5 h-5"
+          />
+        </button>
+        <button className="flex items-center">
+          <FontAwesomeIcon
+            icon={faLinkedin}
+            className="inline justify-center ml-2 w-5 h-5"
+          />
+        </button>
+      </div>
+    </div>
   )
 }
 

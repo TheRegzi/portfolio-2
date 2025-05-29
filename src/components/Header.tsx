@@ -27,7 +27,7 @@ function Header() {
         </p>
       </header>
       <div className="border-b-2 border-black pt-2"></div>
-      <div className="flex flex-row text-center my-4">
+      <div className="flex flex-row text-center">
         <Nav />
       </div>
       <div className="border-b-2 border-black"></div>
