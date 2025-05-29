@@ -1,5 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowCircleDown } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
+import projects from '../../data/projects.json'
 
 function Home() {
   return (
@@ -32,6 +34,28 @@ function Home() {
         </div>
       </div>
       <div className="border-b-2 border-black"></div>
+      <div>
+        <h3 className="text-center font-openSans font-semibold text-3xl my-5">
+          My Projects
+        </h3>
+        <div className="grid md:grid-cols-3 gap-6 px-4">
+          {projects.map((project) => (
+            <Link
+              key={project.id}
+              to="/article"
+              className="bg-white shadow-xl p-4 rounded-xl hover:shadow-2xl transition-shadow"
+            >
+              <img
+                src={project.image}
+                alt={project.title}
+                className="rounded-md mb-4"
+              />
+              <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+              <p className="text-sm text-gray-600">{project.description}</p>
+            </Link>
+          ))}
+        </div>
+      </div>
     </>
   )
 }
