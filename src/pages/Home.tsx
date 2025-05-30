@@ -34,24 +34,30 @@ function Home() {
         </div>
       </div>
       <div className="border-b-2 border-black"></div>
-      <div>
-        <h3 className="text-center font-openSans font-semibold text-3xl my-5">
+      <div className="container mx-auto">
+        <h3 className="text-center font-openSans font-semibold text-3xl mt-10 mb-4">
           My Projects
         </h3>
-        <div className="grid md:grid-cols-3 gap-6 px-4">
+        <div className="grid mx-auto w-[350px] md:w-full md:grid-cols-2 xl:grid-cols-3 gap-6 mb-10 px-4">
           {projects.map((project) => (
             <Link
               key={project.id}
-              to="/article"
-              className="bg-white shadow-xl p-4 rounded-xl hover:shadow-2xl transition-shadow"
+              to={`/article/${project.id}`}
+              className="bg-white shadow-xl rounded-xl hover:shadow-2xl transition-shadow"
             >
-              <img
-                src={project.image}
-                alt={project.title}
-                className="rounded-md mb-4"
-              />
-              <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-              <p className="text-sm text-gray-600">{project.description}</p>
+              <div className="w-full md:aspect-[4/3] sm:h-[220px] md:h-[250px] lg:h-[300px] sm:w-full overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="rounded-t-xl object-top w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-4 bg-lightPurple text-black rounded-b-xl">
+                <h3 className="text-xl font-semibold mb-2 font-openSans text-shadow">
+                  {project.title}
+                </h3>
+                <p className="text-sm font-openSans">{project.description}</p>
+              </div>
             </Link>
           ))}
         </div>
