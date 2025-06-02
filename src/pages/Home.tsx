@@ -3,7 +3,7 @@ import { faArrowCircleDown } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import projects from '../../data/projects.json'
 
-function Home() {
+function Home(): JSX.Element {
   return (
     <>
       <div className="flex flex-col-reverse md:flex-row mx-auto justify-center items-center gap-4 lg:gap-44 p-8 py-12 lg:p-20">
@@ -18,13 +18,16 @@ function Home() {
             I build modern websites focused on design, functionality, and user
             experience.
           </p>
-          <button className="border-2 border-accent rounded text-accent font-semibold text-shadow px-4 py-1.5 shadow-md mt-6 flex items-center text-xl w-[135px] transition-transform hover:scale-105">
+          <a
+            href="#my-projects"
+            className="border-2 border-accent rounded text-accent font-semibold text-shadow px-4 py-1.5 shadow-md mt-6 flex items-center text-xl w-[135px] transition-transform hover:scale-105"
+          >
             Projects{' '}
             <FontAwesomeIcon
               icon={faArrowCircleDown}
               className="inline justify-center ml-2 w-5 h-5"
             />
-          </button>
+          </a>
         </div>
         <div className="">
           <img
@@ -34,7 +37,7 @@ function Home() {
         </div>
       </div>
       <div className="border-b-2 border-black"></div>
-      <div className="container mx-auto">
+      <div id="my-projects" className="container mx-auto">
         <h3 className="text-center font-openSans font-semibold text-3xl mt-10 mb-4">
           My Projects
         </h3>
