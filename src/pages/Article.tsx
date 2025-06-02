@@ -1,11 +1,28 @@
 import { useParams } from 'react-router-dom'
 import projects from '../../data/projects.json'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faArrowUpRightFromSquare,
+  faCopy,
+} from '@fortawesome/free-solid-svg-icons'
+import { useState } from 'react'
 
 function Article(): JSX.Element {
+  const [copied, setCopied] = useState(false)
   const { id } = useParams()
   const project = projects.find((p) => String(p.id) === id)
   if (!project)
     return <div className="text-center text-red-500">Article not found.</div>
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch (err) {
+      console.error('Could not copy:', err)
+    }
+  }
 
   return (
     <>
@@ -13,6 +30,7 @@ function Article(): JSX.Element {
         <img
           className="w-full sm:w-[600px] lg:w-[1000px] rounded-t-xl"
           src={project.image}
+          alt={project.title}
         />
       </div>
       <div className="bg-lightPurple w-full sm:w-[600px] lg:w-[1000px] flex flex-col justify-center mx-auto px-5 lg:px-20 pb-4 mb-4 rounded-b-xl">
@@ -31,13 +49,30 @@ function Article(): JSX.Element {
             href={project.repositoryLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="border-2 border-accent text-accent font-semibold text-shadow shadow-lg text-lg bg-white rounded-lg px-4 py-2"
+            className="border-2 border-accent text-accent font-semibold text-shadow-sm shadow-lg text-lg bg-white rounded-lg px-4 py-2 transition-transform hover:scale-105"
           >
             GitHub Repository
+            <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="ml-2" />
+            <span className="sr-only"> (Opens in a new fan)</span>
           </a>
-          <a href={project.link} target="_blank" rel="noopener noreferrer">
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border-2 border-accent text-accent font-semibold text-shadow-sm shadow-lg text-lg bg-white rounded-lg px-4 py-2 transition-transform hover:scale-105"
+          >
             Link to Website
+            <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="ml-2" />
+            <span className="sr-only"> (Opens in a new fan)</span>
           </a>
+          <button
+            onClick={handleCopy}
+            className="border-2 border-accent text-accent font-semibold text-shadow-sm shadow-lg text-lg bg-white rounded-lg px-4 py-2 transition-transform hover:scale-105"
+          >
+            {copied ? 'Copied URL!' : 'Copy URL'}
+            <FontAwesomeIcon icon={faCopy} className="ml-2" />
+            <span className="sr-only"> (Copies URL of this page)</span>
+          </button>
         </div>
       </div>
     </>
