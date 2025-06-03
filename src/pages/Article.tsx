@@ -7,6 +7,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react'
 
+interface Project {
+  imageCaption?: string
+}
+
 function Article(): JSX.Element {
   const [copied, setCopied] = useState(false)
   const { id } = useParams()
@@ -26,13 +30,18 @@ function Article(): JSX.Element {
 
   return (
     <>
-      <div className="mx-auto flex justify-center mt-8">
+      <figure className="mx-auto flex flex-col items-center mt-8">
         <img
           className="w-full sm:w-[600px] lg:w-[1000px] rounded-t-xl"
           src={project.image}
           alt={project.title}
         />
-      </div>
+        {project.imageCaption && (
+          <figcaption className="text-sm text-gray-600 mt-2 mb-4 font-openSans italic">
+            {project.imageCaption}
+          </figcaption>
+        )}
+      </figure>
       <div className="bg-lightPurple w-full sm:w-[600px] lg:w-[1000px] flex flex-col justify-center mx-auto px-5 lg:px-20 pb-4 mb-10 rounded-b-xl">
         <h1 className="text-center font-openSans font-semibold text-3xl mt-8 mb-4">
           {project.title}
