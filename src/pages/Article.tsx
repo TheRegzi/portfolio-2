@@ -46,7 +46,7 @@ function Article(): JSX.Element {
         <p className="font-openSans text-md mb-8">
           {project.reflectionsAndImprovements}
         </p>
-        <div className="flex flex-row gap-4 justify-center mx-auto mb-8">
+        <div className="flex flex-col lg:flex-row gap-4 justify-center mx-auto mb-8">
           <a
             href={project.repositoryLink}
             target="_blank"
