@@ -34,5 +34,17 @@
     "reflectionsAndImprovements": "This was a large and challenging project that pushed me to grow as a frontend developer. One of the most demanding parts was managing both user roles: regular customer and venue manager. This was something I had never done before, but it turned out to be a valuable learning experience that taught me a lot about user flow, conditional rendering, and data handling. I was highly focused on delivering a high-quality result and everything from layout, responsiveness, and functionality was carefully fine-tuned to ensure a good user experience. If I had more time, I would expand the site further by adding more pages such as About and Contact. I also see potential in improving the user functionality – for example, allowing users to search for other users and view their profiles. I would also use TypeScript instead of vanilla JavaScript. Because I prioritized doing the most essential features well, I didn't have much time to add other features. Still, I'm proud of what I accomplished and how much I learned throughout the process.",
     "link": "https://holidaze25.netlify.app",
     "repositoryLink":"https://github.com/TheRegzi/holidaze"
+  },
+  {
+    "id": "4",
+    "title": "Weather Wise",
+    "image": "/assets/weater-wise.png",
+    "imageCaption": "The home page of Weather Wise.",
+    "description": "Weather wise is a weather app created with Next.js. It is for viewing and searching for places to see the weather forecast for 10 days ahead.",
+    "bigDescription":"Weather wise is a weather app I made on my own by using Next.js and Tailwind CSS. It uses a free API from Open Meteo, so you can search for all the places you want and get different search results, that takes you to the specific weather page when clicking on a link. It displays the forecasted weather of ten days for each specific weather page.",
+    "features": "All users can view and search for places to see the weather forecast for 10 days ahead. It has a responsive design, so it works well on both desktop and mobile devices. It uses Next.js for server-side rendering and Tailwind CSS for styling.",
+    "reflectionsAndImprovements": "I had never used Next.js before, so this was a great learning experience for me. I learned how to use it and it got easier and easier, as it is quite similar to React. There are also many new aspects to think about when forecasting weather, like the different units of measurement for temperature, wind speed, and precipitation. The app can be further improved by adding more features like a favorites list, so you can save your favorite places to easily access them later. It can also be improved by adding more detailed weather information, like humidity and UV index, and add a map over a specific place.",
+    "link": "https://weather-wise-sigma-one.vercel.app",
+    "repositoryLink":"https://github.com/TheRegzi/weather-wise"
   }
 ]
